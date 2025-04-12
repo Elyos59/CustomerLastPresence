@@ -46,7 +46,7 @@ class CustomerLastPresencePlugin extends AbstractSmartyPlugin
             $search = CustomerLastPresenceQuery::create()
                 ->findOneByCustomerId($params['id']);
             if (null !== $search) {
-                $output = $search->getDate();
+                $output = $search->getDate()->format('Y-m-d H:i:s');
             } else {
                 $output = "-";
             }
